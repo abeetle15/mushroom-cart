@@ -3,69 +3,82 @@
 <head>
   <script type="module" src="main.js"></script>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mushroom Cart</title>
+  <title>Mushroom Market</title>
 </head>
 <body>
+  <header id="header-cont">
+    <h1 id="header-title">Mushroom Market</h1>
+    <div id="basket-cont">
+      <a href="cart.html">
+        <img src="icons/basket-icon.svg" alt="basket button" id="basket-icon">
+      </a>
+    </div>
+  </header>
 
-  <h1>Welcome to the Mushroom Market!</h1>
+  <main id="main-cont">
 
-  <h2>Enjoy our selection of the freshest mushrooms:</h2>
-
-  <section class="shelf-container">
-    <div class="type-container " id="shiitake-cont">
-      <h3>Shiitake</h3>
-      <img src="images/shiitake.jpg" alt="shiitake mushroom">
-      <button id="0" class="add-btn">Add to cart</button>
-    </div>
-    <div class="type-container " id="oyster-cont">
-      <h3>Oyster</h3>
-      <img src="images/oyster.jpg" alt="oyster mushroom">
-      <button id="1" class="add-btn">Add to cart</button>
-    </div>
-    <div class="type-container " id="portobello-cont">
-      <h3>Portobello</h3>
-      <img src="images/portobello.jpg" alt="portobello mushroom">
-      <button id="2" class="add-btn">Add to cart</button>
-    </div>
-    <div class="type-container " id="chanterelle-cont">
-      <h3>Chanterelle</h3>
-      <img src="images/chanterelle.jpg" alt="chanterelle mushroom">
-      <button id="3" class="add-btn">Add to cart</button>
-    </div>
-    <div class="type-container " id="morel-cont">
-      <h3>Morel</h3>
-      <img src="images/morel.jpg" alt="morel mushroom">
-      <button id="4" class="add-btn">Add to cart</button>
-    </div>
-    <div class="type-container" id="lions-mane-cont">
-      <h3>Lion's mane</h3>
-      <img src="images/lions-mane.jpg" alt="lion's mane mushroom">
-      <button id="5" class="add-btn">Add to cart</button>
-    </div>
-    <div class="type-container " id="maitake-cont">
-      <h3>Maitake</h3>
-      <img src="images/maitake.jpg" alt="maitake mushroom">
-      <button id="6" class="add-btn">Add to cart</button>
-    </div>
-    <div class="type-container " id="enoki-cont">
-      <h3>Enoki</h3>
-      <img src="images/enoki.jpg" alt="enoki mushroom">
-      <button id="7" class="add-btn">Add to cart</button>
-    </div>
-    <div class="type-container " id="porcini-cont">
-      <h3>Porcini</h3>
-      <img src="images/porcini.jpg" alt="porcini mushroom">
-      <button id="8" class="add-btn">Add to cart</button>
-    </div>
-    <div class="type-container " id="truffle-cont">
-      <h3>Truffle</h3>
-      <img src="images/truffle.jpg" alt="truffle">
-      <button id="9" class="add-btn">Add to cart</button>
-    </div>
-
-  </section>
+    <h2 id="main-title">Shop</h2>
   
+    <section id="shelf-cont">
+      <div class="type-container " id="shiitake-cont">
+        <h3>Shiitake</h3>
+        <img src="images/shiitake.jpg" alt="shiitake mushroom">
+        <button id="0" class="add-btn">Add to cart</button>
+      </div>
+      <div class="type-container " id="oyster-cont">
+        <h3>Oyster</h3>
+        <img src="images/oyster.jpg" alt="oyster mushroom">
+        <button id="1" class="add-btn">Add to cart</button>
+      </div>
+      <div class="type-container " id="portobello-cont">
+        <h3>Portobello</h3>
+        <img src="images/portobello.jpg" alt="portobello mushroom">
+        <button id="2" class="add-btn">Add to cart</button>
+      </div>
+      <div class="type-container " id="chanterelle-cont">
+        <h3>Chanterelle</h3>
+        <img src="images/chanterelle.jpg" alt="chanterelle mushroom">
+        <button id="3" class="add-btn">Add to cart</button>
+      </div>
+      <div class="type-container " id="morel-cont">
+        <h3>Morel</h3>
+        <img src="images/morel.jpg" alt="morel mushroom">
+        <button id="4" class="add-btn">Add to cart</button>
+      </div>
+      <div class="type-container" id="lions-mane-cont">
+        <h3>Lion's mane</h3>
+        <img src="images/lions-mane.jpg" alt="lion's mane mushroom">
+        <button id="5" class="add-btn">Add to cart</button>
+      </div>
+      <div class="type-container " id="maitake-cont">
+        <h3>Maitake</h3>
+        <img src="images/maitake.jpg" alt="maitake mushroom">
+        <button id="6" class="add-btn">Add to cart</button>
+      </div>
+      <div class="type-container " id="enoki-cont">
+        <h3>Enoki</h3>
+        <img src="images/enoki.jpg" alt="enoki mushroom">
+        <button id="7" class="add-btn">Add to cart</button>
+      </div>
+      <div class="type-container " id="porcini-cont">
+        <h3>Porcini</h3>
+        <img src="images/porcini.jpg" alt="porcini mushroom">
+        <button id="8" class="add-btn">Add to cart</button>
+      </div>
+      <div class="type-container " id="truffle-cont">
+        <h3>Truffle</h3>
+        <img src="images/truffle.jpg" alt="truffle">
+        <button id="9" class="add-btn">Add to cart</button>
+      </div>
+  
+    </section>
+    
+  </main>
+
 </body>
 </html>
