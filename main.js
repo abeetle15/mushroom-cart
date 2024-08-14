@@ -1,9 +1,10 @@
 
 import {shelf, cart, currentTotal, addToCart, removeFromCart, findCurrent as findCurrentTotal, clearCart} from "./cart-functions.js"
+import { addEventListeners } from "./site-functions.js";
 
 const addBtns = document.querySelectorAll('.add-btn');
-console.log(addBtns)
 
+addEventListeners(addBtns);
 
 findCurrentTotal(cart)
 console.log('Cart:');
