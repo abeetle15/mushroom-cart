@@ -70,7 +70,7 @@ body {
 }
 
 #basket-icon {
-  height: 7.5svh;
+  height: 4.2rem;
   color: var(--primary);
   filter: invert(25%) sepia(8%) saturate(3343%) hue-rotate(95deg) brightness(94%) contrast(87%);
 }
