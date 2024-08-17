@@ -117,7 +117,6 @@ body {
 #cart-img-cont {
   width: 35%;
   max-height: 100%;
-  overflow: hidden;
 }
 
 #cart-item-img {
