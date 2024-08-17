@@ -48,13 +48,18 @@ body {
 
 #header-cont {
   display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+}
+
+#top-cont {
+  display: flex;
   justify-content: space-evenly;
   align-items: center;
   height: 12svh;
   background-color: var(--light);
   padding: 1rem;
-  position: sticky;
-  top: 0;
 }
 
 #header-title {
@@ -89,11 +94,13 @@ body {
   display: flex;
 }
 
-#cart-cont {
+.cart-cont {
+  display: block;
+  position: inherit;
   height: 60svh;
   background-color: var(--light);
-  margin: 0 2rem;
-  border: solid 3px var(--dark);
+  margin: 0 1.5rem;
+  border: solid 2px var(--dark);
   border-radius: 20px;
 }
 

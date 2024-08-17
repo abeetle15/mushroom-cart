@@ -1,16 +1,16 @@
 import { showCart, updateAlert } from "./site-functions.js";
 
 export const shelf = [
-  { name: "Shiitake", pricePerKg: 20, id: 0 },
-  { name: "Oyster", pricePerKg: 15, id: 1 },
-  { name: "Portobello", pricePerKg: 18, id: 2 },
-  { name: "Chanterelle", pricePerKg: 40, id: 3 },
-  { name: "Morel", pricePerKg: 50, id: 4 },
-  { name: "Lion's Mane", pricePerKg: 35, id: 5 },
-  { name: "Maitake", pricePerKg: 25, id: 6 },
-  { name: "Enoki", pricePerKg: 12, id: 7 },
-  { name: "Porcini", pricePerKg: 30, id: 8 },
-  { name: "Truffle", pricePerKg: 200, id: 9 }
+  { name: "Shiitake", pricePerKg: 20, id: 0, img: "./images/shiitake.jpg" },
+  { name: "Oyster", pricePerKg: 15, id: 1, img: "./images/oyster.jpg" },
+  { name: "Portobello", pricePerKg: 18, id: 2, img: "./images/portobello.jpg" },
+  { name: "Chanterelle", pricePerKg: 40, id: 3, img: "./images/chanterelle.jpg" },
+  { name: "Morel", pricePerKg: 50, id: 4, img: "./images/morel.jpg" },
+  { name: "Lion's Mane", pricePerKg: 35, id: 5, img: "./images/lions-mane.jpg" },
+  { name: "Maitake", pricePerKg: 25, id: 6, img: "./images/maitake.jpg" },
+  { name: "Enoki", pricePerKg: 12, id: 7, img: "./images/enoki.jpg" },
+  { name: "Porcini", pricePerKg: 30, id: 8, img: "./images/porcini.jpg" },
+  { name: "Truffle", pricePerKg: 200, id: 9, img: "./images/truffle.jpg" }
 ];
 
 export const cart = {};
