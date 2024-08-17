@@ -8,7 +8,7 @@
 * {
   margin: 0;
   font-family: 'Space Mono', monospace;
-  font-size: 4svw;
+  font-size: 4vw;
   color: var(--dark);
 }
 body {
@@ -142,6 +142,19 @@ body {
 
 .item-char {
   font-size: 1.1rem;
+  font-weight: 700;
+}
+
+#total-cont {
+  position: relative;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.9rem;
+}
+
+#total-cont > p {
+  font-size: 1.2rem;
   font-weight: 700;
 }
 

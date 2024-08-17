@@ -45,22 +45,31 @@ export function handleCartBtn() {
 }
 
 function createChildren() {
-for (let item in cart) {
-  const newChild = document.createElement('div.');
-  newChild.id = 'cart-item-cont';
-  newChild.innerHTML = `
-    <div id="cart-img-cont">
-      <img id="cart-item-img" class="item-char" src="${shelf[item].img}" alt="">
-    </div>
-    <div id="chars-cont">
-      <div id="cart-item-name" class="item-char">${cart[item].name}</div>
-      <div id="numbers-cont">
-        <div id="cart-item-quantity" class="item-char"><span id="display-kilos">${cart[item].quantity}</span>kg</div>
-        <div id="cart-item-price" class="item-char"><span id="display-dollars">${cart[item].price}</span>$</div>
+  for (let item in cart) {
+    const newChild = document.createElement('div.');
+    newChild.id = 'cart-item-cont';
+    newChild.innerHTML = `
+      <div id="cart-img-cont">
+       <img id="cart-item-img" class="item-char" src="${shelf[item].img}" alt="">
       </div>
-    </div>
-  `;
-  this.appendChild(newChild);
-}
+      <div id="chars-cont">
+        <div id="cart-item-name" class="item-char">${cart[item].name}</div>
+        <div id="numbers-cont">
+         <div id="cart-item-quantity" class="item-char"><span id="display-kilos">${cart[item].quantity}</span>kg</div>
+         <div id="cart-item-price" class="item-char"><span id="display-dollars">${cart[item].price}</span>$</div>
+       </div>
+      </div>
+   `;
+
+    this.appendChild(newChild);
+  }
+const totalDiv = document.createElement('div');
+totalDiv.innerHTML = `
+  <div id="total-cont">
+    <p>Total:</p>
+    <p id="total-display">${currentTotal}$</p>
+  </div>
+`;
+this.appendChild(totalDiv)
 
 }
