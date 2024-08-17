@@ -102,6 +102,7 @@ body {
   margin: 0 1.5rem;
   border: solid 2px var(--dark);
   border-radius: 20px;
+  overflow: scroll;
 }
 
 #cart-item-cont {
