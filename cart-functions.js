@@ -20,7 +20,6 @@ export function addToCart(productId) {
   const product = shelf.find(item => item.id === productId);
   if (!product) {return};
 
-
   if (!cart[productId]) {
     cart[productId] = {
       name: product.name,
@@ -28,7 +27,6 @@ export function addToCart(productId) {
       price: 0
     }
   }
-
   cart[productId].quantity++;
   cart[productId].price = cart[productId].quantity * product.pricePerKg;
   findCurrent()

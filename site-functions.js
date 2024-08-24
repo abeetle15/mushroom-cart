@@ -4,7 +4,7 @@ import {basketAlert, header, mainCont} from "./main.js"
 export function addEventListenersAdd(list) {
   for (let i = 0; i < list.length; i++) {
     list[i].addEventListener('click', ()=> {
-      addToCart(i);
+      updateBtn.call(list[i], i)
       showCart();
     })
   }
@@ -36,7 +36,7 @@ export function handleCartBtn() {
     const cartDiv = document.createElement('section');
     header.appendChild(cartDiv)
     cartDiv.classList.add('cart-cont');
-    createChildren.apply(cartDiv)
+    createChildren.call(cartDiv)
   } 
   else if (cartFlag) {
     cartFlag = false;
@@ -46,7 +46,7 @@ export function handleCartBtn() {
 
 function createChildren() {
   for (let item in cart) {
-    const newChild = document.createElement('div.');
+    const newChild = document.createElement('div');
     newChild.id = 'cart-item-cont';
     newChild.innerHTML = `
       <div id="cart-img-cont">
@@ -69,7 +69,37 @@ totalDiv.innerHTML = `
     <p>Total:</p>
     <p id="total-display">${currentTotal}$</p>
   </div>
-`;
-this.appendChild(totalDiv)
+  `;
+  this.appendChild(totalDiv)
+}
 
+function updateBtn(id) {
+  const parent = this.parentNode;
+  parent.removeChild(this);
+
+  const newBtnCont = document.createElement('div');
+  newBtnCont.className = 'new-btn-cont';
+
+  const newP = document.createElement('p');
+  newP.id = `${id}-btn-quant`;
+  newBtnCont.appendChild(newP);
+
+  const newBtnIncrease = document.createElement('button');
+  newBtnIncrease.id = `${id}-btn-increase`;
+  newBtnIncrease.className = 'add-btn';
+  newBtnIncrease.innerHTML = '+'
+  newBtnCont.appendChild(newBtnIncrease);
+
+  parent.appendChild(newBtnCont)
+  parent.addEventListener('click', (event) => {
+    if (event.target && event.target.matches(`.add-btn`)) {
+      console.log(`${id} btn was clicked`)
+      handleNewIncrease(id, newP)
+    }
+  })
+}
+
+function handleNewIncrease(id, p) {
+  addToCart(id);
+  p.innerHTML = `${cart[id].quantity} Kg`;
 }

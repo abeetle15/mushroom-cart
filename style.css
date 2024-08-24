@@ -89,8 +89,8 @@ body {
   font-family: sans-serif;
   font-weight: 900;
   position: absolute;
-  top: 7.3svh;
-  right: 7vw;
+  top: 3.8rem;
+  right: 2rem;
 }
 
 #basket-alert.show {
@@ -109,7 +109,7 @@ body {
 }
 
 #cart-item-cont {
-  height: 12svh;
+  height: 6rem;
   padding: 1rem;
   border-bottom: solid 1px var(--dark);
   display: flex;
@@ -173,7 +173,7 @@ body {
 }
 
 #shelf-cont {
-  margin-top: 10px;
+  margin-top: 0.5rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -204,3 +204,25 @@ body {
   background-color: var(--dark);
   color: var(--light);
 }
+
+.new-btn-cont {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
+  padding: 0.5rem;
+}
+
+.new-btn {
+  font-weight: 900;
+  display: flex;
+  height: 0.6rem;
+  width: 0.6rem;
+  border: solid 2px var(--dark);
+  border-radius: 0.2rem;
+  padding: 0.2rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
