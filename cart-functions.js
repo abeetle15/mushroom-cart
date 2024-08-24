@@ -24,26 +24,29 @@ export function addToCart(productId) {
     cart[productId] = {
       name: product.name,
       quantity: 0,
-      price: 0
+      price: 0,
+      id: productId
     }
   }
   cart[productId].quantity++;
   cart[productId].price = cart[productId].quantity * product.pricePerKg;
   findCurrent()
   updateAlert()
+  showCart()
 }
 
 export function removeFromCart(id) {
   const item = cart[id];
   if (!item) {return}
 
-    item.quantity--;
-    item.price = item.quantity * shelf[id].pricePerKg;
-    if (item.quantity = 0 || item.quantity < 0) {
-      delete cart[id];
-    }
+  item.quantity--;
+  item.price = item.quantity * shelf[id].pricePerKg;
+  if (item.quantity <= 0) {
+    delete cart[id];
+  }
     findCurrent()
     updateAlert()
+    showCart()
 }
 
 export function findCurrent() {

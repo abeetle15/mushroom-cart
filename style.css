@@ -108,7 +108,7 @@ body {
   overflow: scroll;
 }
 
-#cart-item-cont {
+.cart-item-cont {
   height: 6rem;
   padding: 1rem;
   border-bottom: solid 1px var(--dark);
@@ -198,6 +198,7 @@ body {
   border-radius: 7px;
   font-weight: 900;
   padding: 0 0.4rem 0 0.4rem;
+  height: fit-content;
 }
 
 .add-btn:active {

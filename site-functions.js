@@ -1,4 +1,4 @@
-import { addToCart, cart, currentTotal, findCurrent, shelf } from "./cart-functions.js"
+import { addToCart, removeFromCart, cart, currentTotal, findCurrent, shelf } from "./cart-functions.js"
 import {basketAlert, header, mainCont} from "./main.js"
 
 export function addEventListenersAdd(list) {
@@ -42,34 +42,93 @@ export function handleCartBtn() {
       event.preventDefault();
       if (cartFlag && !header.contains(event.target)) {
         cartFlag = false;
-        header.removeChild(header.lastChild)
+        header.removeChild(header.lastChild);
+        refreshQuants();
       }
     })
   } 
   else if (cartFlag) {
     cartFlag = false;
-    header.removeChild(header.lastChild)
+    header.removeChild(header.lastChild);
+    refreshQuants();
   }
+}
+
+function refreshQuants() {
+ const toRefresh = document.querySelectorAll('.shelf-quant');
+ for (let p of toRefresh) {
+  p.innerHTML = `${cart[p.id].quantity} Kg`
+ }
 }
 
 function createChildren() {
   for (let item in cart) {
     const newChild = document.createElement('div');
-    newChild.id = 'cart-item-cont';
+    newChild.className = 'cart-item-cont';
     newChild.innerHTML = `
       <div id="cart-img-cont">
        <img id="cart-item-img" class="item-char" src="${shelf[item].img}" alt="">
-      </div>
-      <div id="chars-cont">
-        <div id="cart-item-name" class="item-char">${cart[item].name}</div>
-        <div id="numbers-cont">
-         <div id="cart-item-quantity" class="item-char"><span id="display-kilos">${cart[item].quantity}</span>kg</div>
-         <div id="cart-item-price" class="item-char"><span id="display-dollars">${cart[item].price}</span>$</div>
-       </div>
-      </div>
-   `;
+      </div>`;
+    const charsCont = document.createElement('div');
+    charsCont.id = "chars-cont";
+    charsCont.innerHTML = `<div id="cart-item-name" class="item-char">${cart[item].name}</div>`;
 
+    const numbersDiv = document.createElement('div');
+    numbersDiv.id = 'numbers-cont';
+
+    const cartQuant = document.createElement('div');
+    cartQuant.id = "cart-item-quantity";
+    cartQuant.className = 'item-char';
+    cartQuant.innerHTML = `${cart[item].quantity}kg`;
+    numbersDiv.appendChild(cartQuant);
+
+    const rmvBtn = document.createElement('button');
+    rmvBtn.id = `${cart[item].name}-btn-decrease`;
+    rmvBtn.className = 'add-btn';
+    rmvBtn.innerHTML = '-';
+    
+    numbersDiv.appendChild(rmvBtn);
+
+    const addBtn = document.createElement('button');
+    addBtn.id = `${cart[item].name}-btn-increase`;
+    addBtn.className = 'add-btn';
+    addBtn.innerHTML = '+';
+    numbersDiv.appendChild(addBtn);
+
+    const cartPrice = document.createElement('div');
+    cartPrice.id = "cart-item-price";
+    cartPrice.className = 'item-char';
+    cartPrice.innerHTML = `${cart[item].price}$`;
+    numbersDiv.appendChild(cartPrice);
+
+    charsCont.appendChild(numbersDiv)
+    newChild.appendChild(charsCont)
     this.appendChild(newChild);
+    rmvBtn.addEventListener('click', () => { 
+      if (cart[item].quantity > 1) {
+        handleNewDecrease(cart[item].id, cartQuant, cartPrice)
+        refreshQuants()
+      }
+      else {
+        console.log(this)
+      }
+      totalDiv.innerHTML = `
+      <div id="total-cont">
+      <p>Total:</p>
+      <p id="total-display">${currentTotal}$</p>
+       </div>
+      `;
+    })
+    addBtn.addEventListener('click', () => { 
+      handleNewIncrease(cart[item].id, cartQuant, cartPrice)
+      refreshQuants();
+      totalDiv.innerHTML = `
+      <div id="total-cont">
+      <p>Total:</p>
+      <p id="total-display">${currentTotal}$</p>
+       </div>
+      `;
+    })
   }
 const totalDiv = document.createElement('div');
 totalDiv.innerHTML = `
@@ -89,7 +148,8 @@ function updateBtn(id) {
   newBtnCont.className = 'new-btn-cont';
 
   const newP = document.createElement('p');
-  newP.id = `${id}-btn-quant`;
+  newP.className = 'shelf-quant'
+  newP.id = `${id}`;
   newBtnCont.appendChild(newP);
 
   const newBtnIncrease = document.createElement('button');
@@ -106,7 +166,16 @@ function updateBtn(id) {
   })
 }
 
-function handleNewIncrease(id, p) {
+function handleNewIncrease(id, quant, price) {
   addToCart(id);
-  p.innerHTML = `${cart[id].quantity} Kg`;
+  quant.innerHTML = `${cart[id].quantity} Kg`;
+  if (price) {
+    price.innerHTML = `${cart[id].price}$`;
+  }
+}
+
+function handleNewDecrease(id, quant, price) {
+  removeFromCart(id);
+  quant.innerHTML = `${cart[id].quantity} Kg`;
+  price.innerHTML = `${cart[id].price}$`;
 }
