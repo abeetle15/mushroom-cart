@@ -36,7 +36,15 @@ export function handleCartBtn() {
     const cartDiv = document.createElement('section');
     header.appendChild(cartDiv)
     cartDiv.classList.add('cart-cont');
-    createChildren.call(cartDiv)
+    createChildren.call(cartDiv);
+
+    document.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (cartFlag && !header.contains(event.target)) {
+        cartFlag = false;
+        header.removeChild(header.lastChild)
+      }
+    })
   } 
   else if (cartFlag) {
     cartFlag = false;
@@ -93,7 +101,6 @@ function updateBtn(id) {
   parent.appendChild(newBtnCont)
   parent.addEventListener('click', (event) => {
     if (event.target && event.target.matches(`.add-btn`)) {
-      console.log(`${id} btn was clicked`)
       handleNewIncrease(id, newP)
     }
   })
